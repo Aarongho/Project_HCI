@@ -110,10 +110,14 @@ function renderVoucher(storeName) {
 
 
 function updateQty(idx, delta) {
-  qtyVals[idx] = Math.max(1, qtyVals[idx] + delta);
-  $('#qty'+idx).textContent = qtyVals[idx];
+  let oldQty = parseInt(qtyVals[idx]) || 1;
+  let newQty = oldQty + delta;
+  if (isNaN(newQty) || newQty < 1) newQty = 1;
+  qtyVals[idx] = newQty;
+  $('#qty'+idx).textContent = newQty;
   updateTotal();
 }
+
 function updateTotal() {
   let total = 0;
   let checkedCount = 0;
