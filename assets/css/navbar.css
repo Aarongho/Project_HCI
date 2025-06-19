@@ -18,7 +18,7 @@
   flex: 1 1 0;
   min-width: 0;
   display: flex;
-  flex-direction: column;      /* icon di atas, label di bawah */
+  flex-direction: column;      
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -38,7 +38,7 @@
 }
 
 .nav-item span {
-  font-size: 0.78rem;      /* KECILIN di sini */
+  font-size: 0.78rem;     
   margin-top: 1.5px;
   white-space: nowrap;
   overflow: hidden;
@@ -59,12 +59,12 @@
 }
 
 .nav-item span {
-  font-size: 0.78rem;     /* perkecil font */
+  font-size: 0.78rem;    
   margin-top: 1.5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 68px;        /* lebih kecil agar muat */
+  max-width: 68px;       
   text-align: center;
   display: block;
   line-height: 1.1;
@@ -75,7 +75,7 @@
 @media (max-width: 430px) {
   .bottom-navbar { height: 56px; }
   .nav-item img, .nav-item svg { width: 19px; height: 19px; }
-  .nav-item span { font-size: 0.7rem; max-width: 52px; }
+  .nav-item span { font-size: 0.6rem; max-width: 52px; }
 }
 
 
