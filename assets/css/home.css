@@ -8,6 +8,16 @@ body, html {
   box-sizing: border-box;
 }
 
+body, html {
+  font-family: 'Vorkurs', 'Vollkorn', Arial, sans-serif;
+  background: #f9f9f9;
+  width: 100vw;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* QUICK ACTIONS */
 .quick-actions {
   width: 100%;
