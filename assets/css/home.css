@@ -340,6 +340,9 @@ body, html {
   padding: 3px 15px 3px 10px;
   gap: 5px;
 }
+.Style Attribute {
+width: 10px;
+}
 .delivery-divider {
   width: 1.5px;
   height: 18px;
