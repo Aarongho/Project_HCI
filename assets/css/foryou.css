@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+nav {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 0 !important;  
+  top: auto !important; 
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 -2px 6px 0 rgba(0,0,0,0.05);
+}
+
+
+
+.subnavbar {
+  position: fixed;
+  top: 0;
+  left: 0; right: 0;
+  height: 48px;
+  background: rgba(255,255,255,0.92);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  border-bottom: 1px solid #ececec;
+}
+.subnavbar a {
+  color: #222;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 8px;
+  border-radius: 4px;
+  transition: background 0.1s;
+}
+.subnavbar a.active, .subnavbar a:hover {
+  background: #f7f7f7;
+  color: #ff6600;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-center {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.nav-center a:hover {
+  transform: scale(1.2);
+  text-decoration: underline;
+}
+
+.carousel {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.carousel-item {
+  position: relative;
+  scroll-snap-align: start;
+  overflow: hidden;
+  background: #000;
+  width: 100vw;
+  /* height diatur lewat JS */
+}
+
+.responsive-video {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+  display: block;
+}
+
+/* Caption, interaction, dan style lain: */
+.video-caption {
+  position: absolute;
+  bottom: 80px;
+  left: 16px;
+  color: white;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 2;
+  width: 80%;
+  max-width: 300px;
+}
+.caption-top,
+.caption-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.caption-top img,
+.caption-bottom img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.discount {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.username { font-weight: bold; color: white; font-size: 14px; }
+.caption-text { color: #eee; }
+.hashtags { color: #f4c542; font-weight: 500; }
+.see-more { color: #ccc; font-style: italic; }
+.music-title { color: white; font-size: 13px; }
+.caption-bottom #arrow{ transform: rotate(270deg); }
+.caption-top{
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  width: fit-content;
+  padding: 3px;
+}
+.interaction {
+  position: absolute;
+  bottom: 100px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.interaction img {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+.interaction span {
+  font-size: 12px;
+  color: white;
+}
+span {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+img {
+  height: 24px;
+  width: auto;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.7));
+}
+
+
+

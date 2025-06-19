@@ -1,0 +1,84 @@
+.topbar {
+  width: 100%;
+  background: linear-gradient(180deg, #ff5722 0%, #ff7a47 100%);
+  padding: 0 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.searchbar-inline {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 7px;
+  box-shadow: 0 1px 5px 0 rgba(255,87,34,0.08);
+  height: 32px;      /* Lebih pendek */
+  min-width: 0;
+}
+
+.search-icon img,
+.search-camera img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  padding: 0 4px;
+  height: 32px;
+  color: #555;
+}
+
+.search-camera { margin-left: 2px; }
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+}
+
+.icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.icon-btn img {
+  width: 23px;
+  height: 23px;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  background: #ff2d55;
+  color: #fff;
+  font-size: 0.92rem;
+  min-width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 9px;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid #fff;
+  padding: 0 3px;
+  box-sizing: border-box;
+}
+.chat-badge { background: #ff8f00; }

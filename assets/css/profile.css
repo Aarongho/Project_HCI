@@ -1,0 +1,207 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: #D9D9D9;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #FF5722, #FF784E);
+  padding: 20px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.profile-top-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-top-bar img {
+  height: 24px;
+  width: 24px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.badge {
+  color: #333;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: silver;
+}
+
+.followers span {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.transaction-section {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    font-family: sans-serif;
+    background-color: white;
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.transaction-header span {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.transaction-header a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.transaction-icons {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.transaction-icons a {
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.transaction-icons img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.transaction-icons span {
+    display: block;
+    font-size: 14px;
+}
+.quick-links {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background-color: white;
+}
+
+.quick-links .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quick-links .link-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+}
+
+.quick-links .link-text {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.quick-links .arrow {
+    font-size: 16px;
+    color: #999;
+}
+
+.oranges{
+    color: #FF5722;
+}
+
+.finance-widget {
+    font-family: sans-serif;
+    padding: 16px;
+    background-color: white;
+}
+
+.finance-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.finance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.finance-card {
+    border: 1px solid #4e4e4e;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    background-color: #fff;
+}
+
+.finance-card img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+}
+
+.finance-highlight {
+    color: #ff5722;
+    font-size: 13px;
+}
+
+.finance-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #ff5722;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 12px;
+}
+
+.finance-header a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+}
+

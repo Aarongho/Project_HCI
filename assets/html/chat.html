@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chats | ShopeeClone</title>
+  <link rel="stylesheet" href="../css/chat.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Satoshi:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-header-row">
+        <button class="chat-back" onclick="window.history.back()">&lt;</button>
+        <span class="chat-title">Chats</span>
+        <a href="addfriends.html" class="chat-add-friend">Add Friends</a>
+      </div>
+      <div class="chat-search-row">
+        <input class="chat-search" type="text" placeholder="Cari Hubungan..." />
+      </div>
+      <div class="chat-tabs">
+        <button class="chat-tab active">Seller</button>
+        <button class="chat-tab">Friends</button>
+      </div>
+    </div>
+    <div class="chat-list"></div>
+  </div>
+  <script src="../js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+body{
+    padding: 0px;
+    background-color: #D9D9D9;
+    margin: 0;
+}
+
+.transaction-nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.nav-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  flex: 1;
+  text-align: center;
+  margin-right: 120px;
+}
+
+.nav-tabs-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+.nav-tabs {
+  display: inline-flex;
+  gap: 20px;
+}
+
+.nav-tabs a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.nav-tabs a:hover {
+  color: orange;
+  border-bottom: 2px solid orange;
+}
+
+.nav-tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.nav-tabs-wrapper {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;     
+}
+
+.transaction-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 14px;
+  color: #333;
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.transaction-header span:first-child {
+  background-color: #ff5722;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.transaction-header span:nth-child(2) {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.transaction-header span:last-child {
+  color: #ff5722;
+  font-weight: bold;
+}
+
+.transaction-body {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.transaction-body img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-details span:nth-child(1) {
+  font-weight: bold;
+}
+
+.product-details span:nth-child(2) {
+  color: #888;
+  font-size: 12px;
+}
+
+.product-details span:nth-child(3) {
+  font-size: 12px;
+  color: #555;
+  margin-top: auto;
+}
+
+.transaction-total {
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.payment-warning {
+  background-color: #fff4f0;
+  color: #ff5722;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.transaction-actions button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.transaction-actions .change-btn {
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+}
+
+.transaction-actions .pay-btn {
+  background-color: #ff5722;
+  color: white;
+}
+
+.recommend-section {
+  padding: 5px;
+}
+
+.recommend-section h2 {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.recommend-section h2::before,
+.recommend-section h2::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.recommend-section h2::before {
+  left: 0;
+}
+
+.recommend-section h2::after {
+  right: 0;
+}
+
+.recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 8px;
+  font-size: 13px;
+  color: #333;
+}
+
+.product-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.product-card .badge {
+  display: inline-block;
+  background-color: #ff5722;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+
+.product-card .name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.product-card .price {
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.product-card .sold {
+  font-size: 12px;
+  color: #777;
+}
+
+.product-recommended-bottom{
+    justify-content: space-between;
+    display: flex;
+}
+
+.no-order{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+
+}

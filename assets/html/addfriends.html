@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Friends | ShopeeClone</title>
+  <link rel="stylesheet" href="../css/chat.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Satoshi:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .addfriends-list { margin:2rem auto; max-width: 440px; }
+    .addfriends-item { display:flex;align-items:center;gap:1rem;background:#fff;padding:1rem 2rem;border-radius:1.1rem;margin-bottom:1.1rem; }
+    .addfriends-avatar { width: 2.8rem; height: 2.8rem; border-radius: 50%; background: #e3e3e3; display: flex; align-items: center; justify-content: center; }
+    .addfriends-name { flex:1;font-family:'Satoshi',Arial,sans-serif;font-size:1.33rem;font-weight:bold;}
+    .addfriends-addbtn { background:#ff5722; color:#fff; border:none; border-radius:1.1rem; font-size:1.1rem; padding:0.5rem 1.2rem; cursor:pointer; font-family:'Satoshi',Arial,sans-serif;}
+    .popup-notif { position: fixed; left: 50%; top: 7%; transform: translateX(-50%); background: #333; color: #fff; padding: 1.2rem 2.4rem; font-family: 'Satoshi', Arial, sans-serif; font-size: 1.1rem; border-radius: 2.1rem; box-shadow: 0 4px 22px 0 rgba(0,0,0,0.07); opacity: 0; pointer-events: none; z-index: 99; transition: opacity 0.3s, top 0.3s;}
+    .popup-notif.show { opacity: 1; top: 5%;}
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-header-row">
+        <button class="chat-back" onclick="window.history.back()">&lt;</button>
+        <span class="chat-title">Add Friends</span>
+        <span style="width:80px"></span>
+      </div>
+    </div>
+    <div class="addfriends-list" id="addfriends-list"></div>
+    <div class="popup-notif" id="popup-notif">Added to the friend list</div>
+  </div>
+  <script src="../js/addfriends.js"></script>
+</body>
+</html>

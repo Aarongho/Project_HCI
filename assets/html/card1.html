@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokemon Mega Charizard X | ShopeeClone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      font-family: 'Vollkorn', Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      color: #1b1b1b;
+      box-sizing: border-box;
+    }
+    .topbar-product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .7rem 1rem .3rem .7rem;
+      background: linear-gradient(180deg, #ff5722 0%, #ff7a47 100%);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .chat-back {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.6rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      padding: 0 7px;
+      border-radius: 4px;
+    }
+    .search-bar {
+      flex: 1;
+      margin: 0 12px;
+      border: none;
+      font-size: 1.13rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: #f8f8f8;
+      color: #555;
+    }
+    .product-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon-btn {
+      width: 26px;
+      height: 26px;
+      margin: 0 2px;
+      cursor: pointer;
+    }
+  .topbar-product {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.6rem 1rem 0.6rem 0.7rem;
+    background: linear-gradient(180deg, #ff5722 0%, #ff7a47 100%);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    min-height: 52px;
+    gap: 10px;
+  }
+  .back-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-right: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+  }
+  .back-btn img {
+    width: 28px;
+    height: 28px;
+  }
+  .searchbar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+  .search-bar {
+    width: 100%;
+    border: none;
+    font-size: 1.13rem;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: #fff;
+    color: #555;
+    box-shadow: 0 1px 6px #0001;
+  }
+  .product-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+  }
+
+    .cart-icon-wrap { position: relative; }
+    .cart-badge {
+      position: absolute; top: -6px; right: -8px;
+      background: #ee4d2d; color: #fff;
+      font-size: 0.75rem; padding: 1px 6px;
+      border-radius: 12px; font-weight: bold;
+    }
+    .mapping-bar {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.96);
+      border-radius: 14px;
+      margin: 1.3rem 1rem 1.5rem 1rem;
+      box-shadow: 0 1px 8px #eee7;
+      position: sticky;
+      top: 40px;
+      z-index: 200;
+      overflow-x: auto;
+    }
+    .map-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 1.1rem 0 .7rem 0;
+      font-size: 1.11rem;
+      color: #c9a45c;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: color .14s, border-bottom .22s;
+    }
+    .map-btn.active {
+      color: #ff601a;
+      border-bottom: 3px solid #ff601a;
+      background: none;
+    }
+    .product-image-container {
+      position: relative;
+      background: #fff;
+      text-align: center;
+      padding: 12px 0 5px 0;
+    }
+    .main-product-img {
+      width: 86vw;
+      max-width: 410px;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px #bbb2;
+    }
+    .slider-indicator {
+      position: absolute; right: 18px; bottom: 16px;
+      background: #fff; border-radius: 11px; padding: 3px 11px;
+      font-size: 1.01rem; color: #444; box-shadow: 0 2px 8px #bbb2;
+    }
+    .product-info-wrap {
+      background: #fff;
+      padding: 1.2rem 1.1rem .5rem 1.1rem;
+      border-radius: 20px 20px 0 0;
+      margin-top: -18px;
+      box-shadow: 0 -4px 12px #eee7;
+    }
+    .product-pricing {
+      display: flex; align-items: baseline; gap: 1.1rem;
+      font-size: 1.65rem; color: #ee4d2d; font-weight: bold;
+    }
+    .old-price { color: #c3c3c3; font-size: 1.1rem; text-decoration: line-through; font-weight: normal;}
+    .product-sold { color: #6e6e6e; font-size: .99rem; margin-left: auto; font-weight: normal;}
+    .product-spaylater { color: #484848; font-size: .99rem; margin-top: 6px;}
+    .spay { color: #ee4d2d; font-weight: bold;}
+    .product-promo-row { display: flex; gap: 8px; margin-top: 8px; margin-bottom: 2px;}
+    .badge {
+      border-radius: 10px;
+      font-size: .98rem;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 12px;
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    .diskon { background: #fff3cb; color: #b48800; border: 1px solid #ffe391;}
+    .badge.cicil {
+      background: #eafaf1;
+      color: #13aa52;
+      border: 1px solid #baf6d6;
+      padding: 2px 14px 2px 14px; /* atas bawah jadi lebih kecil */
+      line-height: 1.6;
+      font-size: 0.96rem;
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    .mall { background: #ffd6d6; color: #d11f1f; border: 1px solid #f5b6b6; margin-right: 7px;}
+    .product-title { font-size: 1.09rem; font-weight: bold; color: #202020;}
+    .product-mall-row { display: flex; align-items: center; margin-top: 8px; margin-bottom: 2px; gap: 6px;}
+    .product-delivery { display: flex; align-items: center; font-size: 1.03rem; color: #13aa52; background: #f7fafb; border-radius: 12px; padding: 7px 12px 7px 7px; margin-top: 10px; margin-bottom: 2px; position: relative; cursor: pointer; border: 1px solid #d9f4e1;}
+    .product-delivery:hover { background: #eafaf1; }
+    .product-delivery .mini-icon { margin-right: 7px; width: 26px; height: 26px;}
+    .delivery-arrow { font-size: 1.3rem; color: #aaa; font-weight: bold; margin-left: 9px;}
+    .voucher-info { position: absolute; left: 44px; top: 33px; font-size: .85rem; color: #888;}
+    .product-policy-row { display: flex; gap: 7px; color: #7d7d7d; font-size: 1rem; margin-top: 17px; margin-bottom: 6px; align-items: center;}
+    .policy-badge { font-weight: bold; }
+    .policy-dot { color: #ccc; }
+    .product-spaylater-promo { font-size: .99rem; color: #ee4d2d; margin: 6px 0; display: flex; align-items: center; gap: 7px;}
+    .product-top20 { background: #fff4f3; color: #ee4d2d; font-size: .97rem; margin: 7px 0 15px 0; padding: 5px 10px; border-radius: 8px; display: flex; align-items: center; gap: 7px; font-weight: bold;}
+    .variant-bar {
+      background: #fff;
+      padding: 1.1rem 1rem .6rem 1rem;
+      font-weight: bold;
+      border-bottom: 1px solid #f2f2f2;
+      margin-bottom: 12px;
+    }
+    .variant-bar-label {
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin-left: 5px;
+      color: #222;
+    }
+    .variant-list {
+      display: flex;
+      gap: 14px;
+      margin-top: 7px;
+      margin-bottom: 6px;
+    }
+    .variant-btn {
+      background: #fff;
+      color: #444;
+      border: 2.5px solid #eee;
+      border-radius: 13px;
+      font-size: 1.16rem;
+      padding: 14px 32px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 1px 5px #0001;
+      transition: border .13s, color .13s, background .16s;
+      letter-spacing: 1.5px;
+    }
+    .variant-btn.selected,
+    .variant-btn:active {
+      border: 2.5px solid #ee4d2d;
+      color: #ee4d2d;
+      background: #fff8f8;
+    }
+    .variant-popup, .variant-popup * { font-family: 'Vollkorn', Arial, sans-serif !important; }
+    .variant-popup {
+      position: fixed; left: 0; right: 0; bottom: -110%;
+      background: #fff; z-index: 1200;
+      border-radius: 28px 28px 0 0;
+      box-shadow: 0 -12px 32px #0003;
+      transition: bottom .37s cubic-bezier(.57,1.6,.67,1.09);
+      min-height: 65vh; max-height: 90vh; width: 100vw; margin: 0 auto; overflow-y: auto;
+    }
+    .variant-popup.active { bottom: 0; }
+    .variant-popup-content {
+      padding: 1.6rem 1.3rem 2.1rem 1.3rem;
+      position: relative;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    .popup-close {
+      position: absolute;
+      right: 22px; top: 15px;
+      font-size: 3rem; color: #888;
+      background: none; border: none; cursor: pointer; z-index: 10; line-height: 1;
+    }
+    .popup-product-row {
+      display: flex; gap: 22px; align-items: center; margin-bottom: 20px;
+    }
+    .popup-product-row img {
+      width: 90px; height: 90px; border-radius: 15px; object-fit: cover;
+    }
+    .popup-product-title {
+      font-size: 1.34rem; font-weight: bold; margin-bottom: 4px; color: #222;
+    }
+    .popup-main-price { color: #ee4d2d; font-size: 1.54rem; font-weight: bold; margin-right: 13px;}
+    .popup-old-price { color: #bcbcbc; font-size: 1.19rem; text-decoration: line-through; vertical-align: middle;}
+    .popup-stok { font-size: 1.13rem; color: #555; margin-top: 5px;}
+    .popup-var-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0 6px 0; font-size: 1.18rem;}
+    .popup-variant-list { display: flex; gap: 18px; margin-bottom: 18px; margin-top: 6px; flex-wrap: wrap; font-size: 1.18rem;}
+    .popup-variant-btn {
+      background: #fff;
+      color: #444;
+      border: 2.5px solid #eee;
+      border-radius: 14px;
+      font-size: 1.18rem;
+      padding: 15px 35px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 1px 5px #0001;
+      margin-bottom: 8px;
+      transition: border .13s, color .13s, background .16s;
+      letter-spacing: 1.7px;
+    }
+    .popup-variant-btn.selected,
+    .popup-variant-btn:active {
+      border: 2.5px solid #ee4d2d;
+      color: #ee4d2d;
+      background: #fff8f8;
+    }
+    .popup-ukuran-detail { font-size: 1.11rem; color: #666; margin-bottom: 19px;}
+    .popup-jumlah-row { display: flex; align-items: center; gap: 40px; font-size: 1.19rem; margin: 14px 0 24px 0; justify-content: flex-start;}
+    .jumlah-ctrl { display: flex; gap: 0; align-items: center;}
+    .jumlah-ctrl button { width: 44px; height: 44px; border: none; font-size: 1.95rem; font-weight: bold; background: #fafafa; color: #ee4d2d; border-radius: 11px; cursor: pointer; transition: background .12s;}
+    .jumlah-ctrl button:active { background: #eee; }
+    #jumlah-val { width: 56px; display: inline-block; text-align: center; font-size: 1.34rem; color: #222; font-weight: bold;}
+    .popup-btn-row { display: flex; gap: 22px; margin-top: 20px;}
+    .popup-addcart-btn, .popup-buy-btn {
+      flex: 1; font-size: 1.26rem; font-weight: bold; padding: 19px 0;
+      border-radius: 22px; box-shadow: 0 2px 7px #0001;
+    }
+    .popup-addcart-btn { background: #fff; color: #ee4d2d; border: 2.5px solid #ee4d2d; transition: background .13s, color .13s;}
+    .popup-buy-btn { background: #ee4d2d; color: #fff; border: none; transition: background .13s;}
+    .variant-popup-overlay { display: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.21); z-index: 1199;}
+    .variant-popup-overlay.active { display: block; }
+    .popup-ongkir {
+      position: fixed; left: 0; right: 0; bottom: -120%;
+      z-index: 1100; background: #fff;
+      border-radius: 28px 28px 0 0; box-shadow: 0 -12px 36px #0004;
+      max-width: 510px; margin: 0 auto;
+      transition: bottom .35s cubic-bezier(.47,1.6,.49,1.1);
+      min-height: 62vh; width: 100vw;
+      font-size: 1.19rem;
+    }
+    .popup-ongkir.active { bottom: 0; }
+    .ongkir-content { padding: 2.0rem 1.4rem 1.4rem 1.4rem;}
+    .ongkir-title { font-size: 1.22rem; font-weight: bold; margin-bottom: 23px; text-align: center;}
+    .ongkir-section { font-size: 1.15rem; margin-bottom: 20px;}
+    .ongkir-row { display: flex; align-items: center; gap: 10px; margin-bottom: 13px; justify-content: space-between;}
+    .ongkir-garansi { gap: 16px; align-items: flex-start;}
+    .garansi-title { font-weight: bold; color: #13aa52; font-size: 1.14rem;}
+    .garansi-detail { color: #888; font-size: 1.09rem;}
+    .ongkir-alamat { font-weight: bold; color: #ee4d2d; font-size: 1.15rem;}
+    .ongkir-list { margin-top: 15px;}
+    .ongkir-item { display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 13px 16px; border-radius: 12px; margin-bottom: 9px; border: 1px solid #f1f1f1;}
+    .ongkir-harga { color: #ee4d2d; font-weight: bold; font-size: 1.11rem; margin-right: 19px;}
+    .ongkir-estimasi { color: #13aa52; font-size: 1.01rem;}
+    .ongkir-close-btn { width: 100%; background: #ee4d2d; color: #fff; border: none; border-radius: 13px; font-size: 1.19rem; font-weight: bold; padding: 13px 0; margin-top: 17px; cursor: pointer; box-shadow: 0 2px 7px #0001;}
+    .ongkir-overlay { display: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.18); z-index: 1000;}
+    .ongkir-overlay.active { display: block; }
+    .bottom-bar {
+      position: fixed; left: 0; right: 0; bottom: 0;
+      background: #fff; display: flex; gap: 15px;
+      justify-content: space-around; align-items: center;
+      box-shadow: 0 -2px 10px #0001;
+      padding: 13px 5vw 15px 5vw; z-index: 99;
+    }
+    .chat-btn, .cart-btn { background: #fff;
+      color: #444;
+      border: 2.5px solid #eee;
+      border-radius: 14px;
+      font-size: 1.18rem;
+      padding: 15px 35px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 1px 5px #0001;
+      margin-bottom: 8px;
+      transition: border .13s, color .13s, background .16s;
+      letter-spacing: 1.7px;
+    }
+    .buy-btn { background: #ee4d2d; color: #fff; border: none; border-radius: 15px; font-size: 1.18rem; font-weight: bold; padding: 13px 32px; cursor: pointer; transition: background .18s;}
+    .buy-btn:hover { background: #ca3717; }
+    .product-ratings {
+      background: #fff;
+      padding: 1.3rem 1.05rem .8rem 1.05rem;
+      border-radius: 20px;
+      margin: 2rem 0 1.4rem 0;
+      box-shadow: 0 2px 8px #eee8;
+    }
+    .ratings-head { display: flex; justify-content: space-between; align-items: center;}
+    .ratings-score { display: flex; align-items: center; gap: 13px;}
+    .star-score { font-size: 2.3rem; color: #ffb900; font-weight: bold; margin-right: 4px;}
+    .score-label { font-size: 1.09rem; color: #444;}
+    .lihat-semua-link { color: #ee4d2d; font-size: 1.06rem; text-decoration: none; font-weight: bold;}
+    .ratings-tags { margin: 13px 0 13px 0;}
+    .ratings-tag { display: inline-block; background: #f7f7f7; border: 1px solid #ececec; color: #666; font-size: .99rem; border-radius: 10px; padding: 4px 14px; margin-right: 8px; margin-bottom: 5px;}
+    .rating-bar-group { margin-bottom: 13px; margin-top: 7px;}
+    .rating-bar-row { display: flex; align-items: center; gap: 10px; margin-top: 5px;}
+    .bar-label { flex: 0 0 104px; color: #555; font-size: 1.01rem;}
+    .bar-bg { flex: 1; background: #eee; height: 13px; border-radius: 7px; overflow: hidden; margin-right: 8px; margin-left: 3px;}
+    .bar-fill { height: 100%; background: #ee4d2d; border-radius: 7px;}
+    .bar-value { font-size: 1.01rem; color: #444; min-width: 32px; text-align: right;}
+    .user-review-list { margin-top: 15px;}
+    .user-review { margin-bottom: 17px; border-bottom: 1px solid #f4f4f4; padding-bottom: 11px;}
+    .review-header { font-size: 1.05rem; color: #222; font-weight: bold; margin-bottom: 3px; display: flex; gap: 10px; align-items: center;}
+    .review-user { color: #8f8f8f;}
+    .review-stars { color: #ffb900; margin-right: 5px;}
+    .review-variant { color: #ee4d2d; font-size: .98rem; font-weight: normal;}
+    .review-content { font-size: 1.01rem; color: #444; margin-top: 2px; font-weight: normal;}
+    .seller-info-section { background: #fff; border-radius: 20px; box-shadow: 0 2px 8px #eee8; padding: 1.2rem 1.05rem .7rem 1.05rem; margin-bottom: 2.1rem;}
+    .seller-main { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px;}
+    .seller-logo-text { display: flex; align-items: center; gap: 16px;}
+    .seller-logo-circle { width: 52px; height: 52px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center;}
+    .seller-logo-initial { color: #fff; font-size: 1.42rem; font-weight: bold; letter-spacing: 1px;}
+    .seller-name { font-weight: bold; font-size: 1.18rem; color: #1b1b1b;}
+    .seller-online { color: #13aa52; font-size: 1.01rem;}
+    .seller-city { color: #888; font-size: .99rem;}
+    .seller-btn { background: #fff; color: #ee4d2d; border: 2px solid #ee4d2d; border-radius: 12px; font-size: 1.12rem; font-weight: bold; padding: 11px 25px; text-decoration: none; transition: background .13s, color .13s; margin-left: 12px;}
+    .seller-btn:hover { background: #ee4d2d; color: #fff;}
+    .seller-stats { display: flex; align-items: center; gap: 45px; padding-bottom: 1rem;}
+    .stat-cell { text-align: center;}
+    .stat-val { font-weight: bold; font-size: 1.19rem; color: #ee4d2d;}
+    .stat-label { color: #444; font-size: 1.01rem;}
+    .specdesc-section { background: #fff; border-radius: 20px; box-shadow: 0 2px 8px #eee8; margin: 2.1rem 0 2rem 0; padding: 0;}
+    .specdesc-tabs { display: flex; }
+    .specdesc-tab { flex: 1; background: none; border: none; padding: 1.1rem 0; font-size: 1.14rem; font-weight: bold; color: #555; border-bottom: 3px solid transparent; cursor: pointer; transition: color .13s, border-color .14s;}
+    .specdesc-tab.active { color: #ee4d2d; border-bottom: 3px solid #ee4d2d;}
+    .specdesc-content { padding: 1.15rem 1.2rem;}
+    .spec-table { width: 100%; font-size: 1.12rem; border-collapse: collapse; }
+    .spec-table th { text-align: left; padding: 7px 0; color: #999; font-weight: normal;}
+    .spec-table td { padding: 7px 0; }
+    .desc-short { font-size: 1.12rem; margin-bottom: 6px; }
+    .desc-expand-btn { border: none; background: #fff7f7; color: #ee4d2d; padding: 7px 15px; font-size: 1.02rem; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 7px;}
+    .desc-full { font-size: 1.12rem; margin-top: 7px; }
+    .rekomendasi-section { margin: 2.5rem 0 3.5rem 0;}
+    .rekomendasi-title { font-size: 1.3rem; font-weight: bold; margin-left: 9px; margin-bottom: 1.2rem;}
+    .rekomendasi-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 25px;
+    }
+    .product-card {
+      border-radius: 22px;
+      box-shadow: 0 2px 18px #eee7;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      height: 420px;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .product-img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      background: #f5f5f5;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+    }
+    .product-info {
+      padding: 1.4rem 1.3rem 1rem 1.3rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .product-title { font-weight: bold; font-size: 1.09rem;}
+    .product-rating { font-size: 1.07rem; color: #ffb900;}
+    .rating-star { color: #ffb900;}
+    .product-price { font-weight: bold; color: #ee4d2d; font-size: 1.17rem;}
+    .product-sold { font-size: .98rem; color: #999;}
+    .product-delivery { display: flex; align-items: center; gap: 7px; margin-top: 7px;}
+    .delivery-badge { background: #f2f8ee; color: #12a050; font-size: .99rem; padding: 2px 11px; border-radius: 9px; display: flex; align-items: center;}
+    .truck-icon, .location-icon { width: 1.1em; margin-right: 3px;}
+    .location-text { color: #666; font-size: .98rem;}
+    .delivery-divider { width: 1px; height: 18px; background: #eee; margin: 0 7px;}
+    .location { display: flex; align-items: center;}
+    .back-btn {
+      border: none;
+      background: none;
+      padding: 0 10px 0 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      height: 42px;
+      width: 42px;
+    }
+    .back-btn:active {
+      background: #ffecd9;
+    }
+    .product-spaylater-promo .mini-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      margin-right: 7px;
+    }
+
+    @media (max-width: 700px) {
+      .variant-popup { min-height: 78vh; max-height: 97vh; border-radius: 22px 22px 0 0;}
+      .variant-popup-content { padding: 1.09rem .55rem 1.3rem .55rem; max-width: 100vw;}
+      .popup-product-row img { width: 76px; height: 76px;}
+      .popup-close { font-size: 2.3rem; }
+      .popup-btn-row { gap: 13px; }
+      .ongkir-content { padding: 1.1rem .6rem 1rem .6rem;}
+      .popup-ongkir { border-radius: 18px 18px 0 0; min-height: 60vh;}
+      .mapping-bar { margin: 1rem .2rem 1rem .2rem; }
+      .map-btn { font-size: 1rem; padding: .8rem 0 .5rem 0; }
+      .cards-container { flex-wrap: wrap; gap: 12px; justify-content: flex-start;}
+      .rekomendasi-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 19px 0;
+      }
+      .product-card { height: 265px; }
+      .product-img { height: 138px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar-product">
+    <button class="chat-back" onclick="window.history.back()">&lt;</button>
+    </button>
+    <input type="text" class="search-bar" placeholder="Cari di Shopee" />
+    <div class="product-icons">
+      <div class="cart-icon-wrap">
+        <img src="../../src/images/cart.png" alt="Cart" class="icon-btn" onclick="location.href='cart.html'" onerror="this.src='../../src/images/logo.svg'">
+        <span class="cart-badge">0</span>
+      </div>
+      <img src="../../src/images/chat.png" alt="More" class="icon-btn" onerror="this.src='../../src/images/logo.svg'">
+    </div>
+  </div>
+  <div class="mapping-bar">
+    <button class="map-btn active" data-scroll="variant-section">Pilihan Produk</button>
+    <button class="map-btn" data-scroll="ratings-section">Ulasan Produk</button>
+    <button class="map-btn" data-scroll="desc-main">Deskripsi Produk</button>
+    <button class="map-btn" data-scroll="rekomendasi-section">Rekomendasi</button>
+  </div>
+  <div class="product-image-container">
+    <img src="../../src/images/charizard.png" class="main-product-img" alt="Pokemon Mega Charizard X" onerror="this.src='../../src/images/logo.svg'">
+    <div class="slider-indicator">2/9</div>
+  </div>
+  <div class="product-info-wrap" id="variant-section">
+    <div class="product-pricing">
+      <span class="main-price">Rp191.920</span>
+      <span class="old-price">Rp210.000</span>
+      <span class="product-sold">22 Terjual</span>
+    </div>
+    <div class="product-spaylater">
+      <span>Rp191.920 x 1 bulan dengan <span class="spay">SPayLater</span></span>
+    </div>
+    <div class="product-promo-row">
+      <span class="badge diskon">Belanja Rp200RB, Diskon Rp10RB</span>
+      <span class="badge cicil">Cicilan Murah 0%</span>
+    </div>
+    <div class="product-mall-row">
+      <span class="badge mall">Mall | ORI</span>
+      <span class="product-title">Pokemon Mega Charizard X</span>
+    </div>
+    <div class="product-delivery" onclick="openOngkirPopup()">
+      <img src="../../src/images/trucks.png" alt="Truck" class="mini-icon" onerror="this.src='../../src/images/logo.svg'">
+      <span>
+        Garansi tiba: <b>11 - 14 Juni</b>
+        <span class="delivery-arrow">›</span>
+      </span>
+      <div class="voucher-info">Dapatkan Voucher s/d Rp10.000 jika pesanan terlambat.</div>
+    </div>
+    <div class="product-policy-row">
+      <span class="policy-badge">15 Hari Pengembalian</span>
+      <span class="policy-dot">•</span>
+      <span class="policy-badge">100% Original</span>
+      <span class="policy-dot">•</span>
+      <span class="policy-badge">Proteksi</span>
+    </div>
+    <div class="product-spaylater-promo">
+      <img src="../../src/images/shopeepay.png" class="mini-icon" alt="SPayLater" onerror="this.src='../../src/images/logo.svg'"> SPayLater: Diskon 100%
+    </div>
+    <div class="product-top20">
+      <img src="../../src/images/trophy.svg" class="mini-icon" alt="Trophy" onerror="this.src='../../src/images/logo.svg'"> Top 20 terlaris di Kartu Pokemon Koleksi
+    </div>
+  </div>
+  <div class="variant-bar">
+    <span class="variant-bar-label" id="variant-label">Pilih variasi (Ukuran)</span>
+    <div class="variant-list">
+      <button class="variant-btn" data-variant="S">S</button>
+      <button class="variant-btn" data-variant="M">M</button>
+      <button class="variant-btn" data-variant="L">L</button>
+      <button class="variant-btn" data-variant="XL">XL</button>
+      <button class="variant-btn" data-variant="XXL">XXL</button>
+    </div>
+  </div>
+  <div id="variant-popup" class="variant-popup">
+    <div class="variant-popup-content">
+      <button class="popup-close" onclick="closeVariantPopup()">×</button>
+      <div class="popup-product-row">
+        <img src="../../src/images/charizard.png" alt="Mega Charizard X" onerror="this.src='../../src/images/logo.svg'">
+        <div>
+          <div class="popup-product-title">Pokemon Mega Charizard X</div>
+          <div>
+            <span class="popup-main-price">Rp191.920</span>
+            <span class="popup-old-price">Rp210.000</span>
+          </div>
+          <div class="popup-stok">Stok: <span id="popup-stock">13</span></div>
+        </div>
+      </div>
+      <div class="popup-var-row">
+        <span>Ukuran</span>
+      </div>
+      <div class="popup-variant-list" id="popup-variant-list">
+        <button class="popup-variant-btn" data-variant="S">S</button>
+        <button class="popup-variant-btn" data-variant="M">M</button>
+        <button class="popup-variant-btn" data-variant="L">L</button>
+        <button class="popup-variant-btn" data-variant="XL">XL</button>
+        <button class="popup-variant-btn" data-variant="XXL">XXL</button>
+      </div>
+      <div class="popup-ukuran-detail">Beda tiap Sizenya sebesar 5cm untuk lebar dan tinggi dari pokemon figurenya</div>
+      <div class="popup-jumlah-row">
+        <span>Jumlah</span>
+        <div class="jumlah-ctrl">
+          <button id="minus-btn">-</button>
+          <span id="jumlah-val">1</span>
+          <button id="plus-btn">+</button>
+        </div>
+      </div>
+      <div class="popup-btn-row">
+        <button class="popup-addcart-btn" onclick="addToCart()">Masukkan Keranjang</button>
+        <button class="popup-buy-btn" onclick="goToBuy()">Beli Sekarang</button>
+      </div>
+    </div>
+  </div>
+  <div id="variant-popup-overlay" class="variant-popup-overlay"></div>
+  <div id="popup-ongkir" class="popup-ongkir">
+    <div class="ongkir-content">
+      <div class="ongkir-title">Informasi Ongkir</div>
+      <div class="ongkir-section">
+        <div class="ongkir-row ongkir-garansi">
+          <img src="../../src/images/trucks.svg" class="mini-icon" onerror="this.src='../../src/images/logo.svg'">
+          <div>
+            <div class="garansi-title">Garansi Tepat Waktu</div>
+            <div class="garansi-detail">Dapatkan Voucher s/d Rp10.000 jika pesanan terlambat.</div>
+          </div>
+        </div>
+        <div class="ongkir-row">
+          <span>Kirim ke</span>
+          <span class="ongkir-alamat">KOTA JAKARTA</span>
+        </div>
+        <div class="ongkir-list">
+          <div class="ongkir-item">
+            <div>
+              <img src="../../src/images/truck.svg" class="mini-icon" onerror="this.src='../../src/images/logo.svg'"> Next Day
+            </div>
+            <div>
+              <span class="ongkir-harga">Rp18.000</span>
+              <span class="ongkir-estimasi">Garansi tiba: 11 Juni</span>
+            </div>
+          </div>
+          <div class="ongkir-item">
+            <div>
+              <img src="../../src/images/truck.svg" class="mini-icon" onerror="this.src='../../src/images/logo.svg'"> Reguler
+            </div>
+            <div>
+              <span class="ongkir-harga">Rp0</span>
+              <span class="ongkir-estimasi">Garansi tiba: 12 - 14 Juni</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="ongkir-close-btn" onclick="closeOngkirPopup()">OK</button>
+    </div>
+  </div>
+  <div id="popup-ongkir-overlay" class="ongkir-overlay"></div>
+  <div class="specdesc-section" id="desc-main">
+    <div class="specdesc-tabs">
+      <button class="specdesc-tab active" onclick="showSpecDesc('deskripsi')">Deskripsi</button>
+      <button class="specdesc-tab" onclick="showSpecDesc('spesifikasi')">Spesifikasi</button>
+    </div>
+    <div class="specdesc-content" id="specdesc-deskripsi">
+      <div class="desc-short" id="descShort">
+        Figure Pokemon Mega Charizard X original dari koleksi terbaru 2025 ini menghadirkan kemewahan detail serta kualitas cat premium yang benar-benar menonjol. Dengan figur yang kokoh dan berat, cocok untuk koleksi dan hadiah para trainer sejati.<br><br>
+        Setiap detail dari Mega Charizard X – mulai dari sayap biru terang, ekor menyala, hingga ekspresi fierce – dipahat dan dicat dengan teknologi printing terbaru untuk menghasilkan tampilan seperti di animasi.<br><br>
+        Action figure ini terbuat dari bahan Premium PVC, dijamin awet dan tahan gores, bahkan jika sering dimainkan atau dipajang di etalase kaca. Tinggi dan lebar figurnya berbeda-beda tergantung varian size, mulai dari S hingga XXL, dengan selisih 5cm tiap varian.<br><br>
+        Selain itu, figure ini sudah dilengkapi dengan kotak eksklusif bergambar Charizard dan plastik pelindung sehingga aman selama pengiriman ke seluruh Indonesia.<br><br>
+        Untuk kamu para penggemar Pokémon atau kolektor action figure, produk ini adalah investasi wajib. Tersedia fitur tambahan seperti custom gift wrap dan kartu ucapan personal, sehingga bisa langsung diberikan sebagai kado spesial. Pembelian lebih dari 2 pcs akan mendapatkan diskon tambahan dan free gift random. Jadi, jangan sampai kehabisan stok – Charizard X edisi 2025 ini benar-benar limited!
+      </div>
+      <button class="desc-expand-btn" onclick="toggleDesc()">Selengkapnya ▼</button>
+      <div class="desc-full" id="descFull" style="display:none;">
+        Figur Pokemon Mega Charizard X juga menonjolkan sentuhan detail api biru yang membara pada mulut dan ekornya. Dengan penggunaan cat metalik pada bagian tertentu, menambah kesan hidup dan mewah saat terkena cahaya.<br><br>
+        Setiap pembelian sudah termasuk dudukan transparan untuk display, sehingga figure dapat dipajang dalam berbagai pose. Produk ini juga sudah melewati quality control ketat, dijamin original (bukan KW).<br><br>
+        Cocok dikoleksi bersama figure Charizard varian lain ataupun digabungkan dengan koleksi Pokemon lain. Setiap figure sudah memiliki nomor seri resmi.<br><br>
+        Pengiriman dilakukan dari Jakarta dengan packing super aman (double bubble wrap + kotak tebal). Ada garansi uang kembali jika barang tidak sampai atau rusak di perjalanan.<br><br>
+        Untuk info lebih detail, hubungi toko via chat! Jangan lupa cek juga produk rekomendasi di bawah ini untuk koleksi Pokemon dan aksesoris lainnya.
+      </div>
+    </div>
+    <div class="specdesc-content" id="specdesc-spesifikasi" style="display:none;">
+      <table class="spec-table">
+        <tr><th>Stok</th><td>13</td></tr>
+        <tr><th>Karakter</th><td>Pokemon Mega Charizard X</td></tr>
+        <tr><th>Kategori</th><td>Action Figure</td></tr>
+        <tr><th>Bahan</th><td>Premium PVC</td></tr>
+        <tr><th>Dimensi</th><td>Ukuran: S, M, L, XL, XXL<br>Lebar & tinggi beda 5cm tiap size</td></tr>
+        <tr><th>Dikirim dari</th><td>KOTA JAKARTA</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="product-ratings" id="ratings-section">
+    <div class="ratings-head">
+      <div class="ratings-score">
+        <span class="star-score">4.9</span>
+        <span class="score-label">Penilaian Produk (137)</span>
+      </div>
+      <a href="#" class="lihat-semua-link">Lihat Semua</a>
+    </div>
+    <div class="ratings-tags">
+      <span class="ratings-tag">Detail rapih (55)</span>
+      <span class="ratings-tag">Asli & Ori (36)</span>
+      <span class="ratings-tag">Pengemasan aman (21)</span>
+    </div>
+    <div class="rating-bar-group">
+      <div class="rating-bar-row">
+        <span class="bar-label">Kurang</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:2%"></div></div>
+        <span class="bar-value">2%</span>
+      </div>
+      <div class="rating-bar-row">
+        <span class="bar-label">Bagus</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:0%"></div></div>
+        <span class="bar-value"></span>
+      </div>
+      <div class="rating-bar-row">
+        <span class="bar-label">Sesuai</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:95%"></div></div>
+        <span class="bar-value">95%</span>
+      </div>
+      <div class="rating-bar-row">
+        <span class="bar-label">Lebih Bagus</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:3%"></div></div>
+        <span class="bar-value">3%</span>
+      </div>
+    </div>
+    <div class="user-review-list">
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">p*****r</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: L</span>
+        </div>
+        <div class="review-content">Figur Charizard-nya asli, detail banget, warnanya keren! Packaging juga super aman, recommended!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">d*****8</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: M</span>
+        </div>
+        <div class="review-content">Kirim cepat, packing rapi, figurenya berat, original dan sesuai gambar! Akan repeat order!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">w*****1</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: XL</span>
+        </div>
+        <div class="review-content">Barang sampai aman, ekspedisi juga cepat, seller responsif, kualitas detail Charizard X luar biasa!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">b*****3</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: S</span>
+        </div>
+        <div class="review-content">Anak saya suka banget! Gak nyesel beli di toko ini, dapat bonus gift juga!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">f*****a</span>
+          <span class="review-stars">★★★★☆</span>
+          <span class="review-variant">Varian: XXL</span>
+        </div>
+        <div class="review-content">Figur bagus, detail, hanya box sempat peyok sedikit, tapi isi aman. Terima kasih seller.</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">d*****x</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: M</span>
+        </div>
+        <div class="review-content">Barang sampai super aman, kualitas produk mantap, harga sesuai. Next order lagi!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">u*****9</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: S</span>
+        </div>
+        <div class="review-content">Pelayanan seller bagus, respons cepat, dapat free gift juga!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">a*****i</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: XL</span>
+        </div>
+        <div class="review-content">Figur berat, kualitas top, cat rapi, packing ekstra safety.</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">l*****n</span>
+          <span class="review-stars">★★★★★</span>
+          <span class="review-variant">Varian: L</span>
+        </div>
+        <div class="review-content">Barang sampai sebelum estimasi, detail charizardnya dapet banget!</div>
+      </div>
+      <div class="user-review">
+        <div class="review-header">
+          <span class="review-user">s*****u</span>
+          <span class="review-stars">★★★★☆</span>
+          <span class="review-variant">Varian: XXL</span>
+        </div>
+        <div class="review-content">Packing super tebal, overall memuaskan. Akan order lagi.</div>
+      </div>
+    </div>
+  </div>
+  <div class="seller-info-section">
+    <div class="seller-main">
+      <div class="seller-logo-text">
+        <div class="seller-logo-circle">
+          <span class="seller-logo-initial">PF</span>
+        </div>
+        <div>
+          <div class="seller-name">Pokemon Figure Store</div>
+          <div class="seller-online">Online 12 menit lalu</div>
+          <div class="seller-city">KOTA JAKARTA</div>
+        </div>
+      </div>
+      <a href="#" class="seller-btn">Kunjungi</a>
+    </div>
+    <div class="seller-stats">
+      <div class="stat-cell">
+        <div class="stat-val">4.9</div>
+        <div class="stat-label">Penilaian</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">520</div>
+        <div class="stat-label">Produk</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">89%</div>
+        <div class="stat-label">Chat Dibalas</div>
+      </div>
+    </div>
+  </div>
+  <div class="rekomendasi-section" id="rekomendasi-section">
+    <div class="rekomendasi-title">Produk Rekomendasi</div>
+    <div class="rekomendasi-cards-grid">
+      <a href="card2.html" class="product-card">
+        <img src="../../src/images/adidas.png" class="product-img" onerror="this.src='../../src/images/logo.svg'">
+        <div class="product-info">
+          <div class="product-title">Baju Bola Adidas</div>
+          <div class="product-rating"><span class="rating-star">★</span>4.6</div>
+          <div class="product-price">Rp109.900</div>
+          <div class="product-sold">19 sold</div>
+          <div class="product-delivery">
+            <span class="delivery-badge">
+              <img src="../../src/images/truck.svg" class="truck-icon" alt="Truck" onerror="this.src='../../src/images/logo.svg'"> Besok
+            </span>
+            <span class="delivery-divider"></span>
+            <span class="location">
+              <img src="../../src/images/location.svg" class="location-icon" alt="Loc" onerror="this.src='../../src/images/logo.svg'">
+              <span class="location-text">JAKARTA</span>
+            </span>
+          </div>
+        </div>
+      </a>
+      <a href="card3.html" class="product-card">
+        <img src="../../src/images/adidashome.png" class="product-img" onerror="this.src='../../src/images/logo.svg'">
+        <div class="product-info">
+          <div class="product-title">Adidas Jersey 2024 Home</div>
+          <div class="product-rating"><span class="rating-star">★</span>5.0</div>
+          <div class="product-price">Rp289.000</div>
+          <div class="product-sold">11 sold</div>
+          <div class="product-delivery">
+            <span class="delivery-badge">
+              <img src="../../src/images/truck.svg" class="truck-icon" alt="Truck" onerror="this.src='../../src/images/logo.svg'"> Besok
+            </span>
+            <span class="delivery-divider"></span>
+            <span class="location">
+              <img src="../../src/images/location.svg" class="location-icon" alt="Loc" onerror="this.src='../../src/images/logo.svg'">
+              <span class="location-text">BANDUNG</span>
+            </span>
+          </div>
+        </div>
+      </a>
+      <a href="card5.html" class="product-card">
+        <img src="../../src/images/HTS.png" class="product-img" onerror="this.src='../../src/images/logo.svg'">
+        <div class="product-info">
+          <div class="product-title">Here to Slay Board Game</div>
+          <div class="product-rating"><span class="rating-star">★</span>4.8</div>
+          <div class="product-price">Rp150.000</div>
+          <div class="product-sold">30 sold</div>
+          <div class="product-delivery">
+            <span class="delivery-badge">
+              <img src="../../src/images/truck.svg" class="truck-icon" alt="Truck" onerror="this.src='../../src/images/logo.svg'"> 2 Hari
+            </span>
+            <span class="delivery-divider"></span>
+            <span class="location">
+              <img src="../../src/images/location.svg" class="location-icon" alt="Loc" onerror="this.src='../../src/images/logo.svg'">
+              <span class="location-text">SURABAYA</span>
+            </span>
+          </div>
+        </div>
+      </a>
+      <a href="card7.html" class="product-card">
+        <img src="../../src/images/tumblr.png" class="product-img" onerror="this.src='../../src/images/logo.svg'">
+        <div class="product-info">
+          <div class="product-title">Eco Tumbler 500ml</div>
+          <div class="product-rating"><span class="rating-star">★</span>4.5</div>
+          <div class="product-price">Rp85.000</div>
+          <div class="product-sold">13 sold</div>
+          <div class="product-delivery">
+            <span class="delivery-badge">
+              <img src="../../src/images/truck.svg" class="truck-icon" alt="Truck" onerror="this.src='../../src/images/logo.svg'"> 3 Hari
+            </span>
+            <span class="delivery-divider"></span>
+            <span class="location">
+              <img src="../../src/images/location.svg" class="location-icon" alt="Loc" onerror="this.src='../../src/images/logo.svg'">
+              <span class="location-text">BOGOR</span>
+            </span>
+          </div>
+        </div>
+      </a>
+      <a href="card6.html" class="product-card">
+        <img src="../../src/images/mouse.png" class="product-img" onerror="this.src='../../src/images/logo.svg'">
+        <div class="product-info">
+          <div class="product-title">Rexus X12 Mouse Gaming</div>
+          <div class="product-rating"><span class="rating-star">★</span>4.9</div>
+          <div class="product-price">Rp98.000</div>
+          <div class="product-sold">27 sold</div>
+          <div class="product-delivery">
+            <span class="delivery-badge">
+              <img src="../../src/images/truck.svg" class="truck-icon" alt="Truck" onerror="this.src='../../src/images/logo.svg'"> 2 Hari
+            </span>
+            <span class="delivery-divider"></span>
+            <span class="location">
+              <img src="../../src/images/location.svg" class="location-icon" alt="Loc" onerror="this.src='../../src/images/logo.svg'">
+              <span class="location-text">DEPOK</span>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <button class="chat-btn"> Chat
+    </button>
+    <button class="variant-btn" data-variant="Keranjang">Keranjang</button>
+    <button class="buy-btn" onclick="openVariantPopup()">Beli Sekarang</button>
+  </div>
+  <script>
+    const descBtn = document.querySelector('.desc-expand-btn');
+    let expanded = false;
+    function toggleDesc() {
+      const short = document.getElementById('descShort');
+      const full = document.getElementById('descFull');
+      expanded = !expanded;
+      if (expanded) {
+        full.style.display = '';
+        descBtn.textContent = 'Lebih singkat ▲';
+        short.style.display = 'none';
+      } else {
+        full.style.display = 'none';
+        descBtn.textContent = 'Selengkapnya ▼';
+        short.style.display = '';
+      }
+    }
+    function showSpecDesc(tab) {
+      document.querySelector('.specdesc-tab.active').classList.remove('active');
+      document.getElementById('specdesc-deskripsi').style.display = 'none';
+      document.getElementById('specdesc-spesifikasi').style.display = 'none';
+      if (tab === 'deskripsi') {
+        document.querySelectorAll('.specdesc-tab')[0].classList.add('active');
+        document.getElementById('specdesc-deskripsi').style.display = '';
+      } else {
+        document.querySelectorAll('.specdesc-tab')[1].classList.add('active');
+        document.getElementById('specdesc-spesifikasi').style.display = '';
+      }
+    }
+    const mappingBtns = document.querySelectorAll('.map-btn');
+    mappingBtns.forEach(btn => {
+      btn.onclick = function() {
+        document.querySelector('.map-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        const sec = document.getElementById(btn.dataset.scroll);
+        if (sec) sec.scrollIntoView({behavior: "smooth"});
+      }
+    });
+    function openVariantPopup() {
+      document.getElementById('variant-popup').classList.add('active');
+      document.getElementById('variant-popup-overlay').classList.add('active');
+    }
+    function closeVariantPopup() {
+      document.getElementById('variant-popup').classList.remove('active');
+      document.getElementById('variant-popup-overlay').classList.remove('active');
+    }
+    document.getElementById('variant-popup-overlay').onclick = closeVariantPopup;
+    let variantSelected = null;
+    document.querySelectorAll('.variant-btn').forEach(btn => {
+      btn.onclick = function() {
+        document.querySelectorAll('.variant-btn').forEach(b=>b.classList.remove('selected'));
+        btn.classList.add('selected');
+        variantSelected = btn.dataset.variant;
+        openVariantPopup();
+        document.querySelectorAll('.popup-variant-btn').forEach(b=>{
+          if(b.dataset.variant==variantSelected) b.classList.add('selected');
+          else b.classList.remove('selected');
+        });
+      }
+    });
+    document.querySelectorAll('.popup-variant-btn').forEach(btn => {
+      btn.onclick = function() {
+        document.querySelectorAll('.popup-variant-btn').forEach(b=>b.classList.remove('selected'));
+        btn.classList.add('selected');
+        variantSelected = btn.dataset.variant;
+      }
+    });
+    let jumlah = 1;
+    function updateJumlah() {
+      document.getElementById('jumlah-val').textContent = jumlah;
+    }
+    document.getElementById('minus-btn').onclick = function() {
+      if (jumlah > 1) jumlah--;
+      updateJumlah();
+    }
+    document.getElementById('plus-btn').onclick = function() {
+      jumlah++;
+      updateJumlah();
+    }
+    function addToCart() {
+      alert('Berhasil ditambah ke keranjang: '+variantSelected+' x'+jumlah);
+      closeVariantPopup();
+    }
+    function goToBuy() {
+      alert('Silakan checkout: '+variantSelected+' x'+jumlah);
+      closeVariantPopup();
+    }
+    function openOngkirPopup() {
+      document.getElementById('popup-ongkir').classList.add('active');
+      document.getElementById('popup-ongkir-overlay').classList.add('active');
+    }
+    function closeOngkirPopup() {
+      document.getElementById('popup-ongkir').classList.remove('active');
+      document.getElementById('popup-ongkir-overlay').classList.remove('active');
+    }
+    document.getElementById('popup-ongkir-overlay').onclick = closeOngkirPopup;
+  </script>
+</body>
+</html>
