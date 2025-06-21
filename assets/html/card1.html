@@ -229,24 +229,51 @@
       color: #222;
     }
     .variant-list {
-      display: flex;
-      gap: 14px;
-      margin-top: 7px;
-      margin-bottom: 6px;
-    }
-    .variant-btn {
-      background: #fff;
-      color: #444;
-      border: 2.5px solid #eee;
-      border-radius: 13px;
-      font-size: 1.16rem;
-      padding: 14px 32px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 1px 5px #0001;
-      transition: border .13s, color .13s, background .16s;
-      letter-spacing: 1.5px;
-    }
+  display: flex;
+  gap: 8px;
+  margin-top: 7px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.variant-btn {
+  background: #fff;
+  color: #444;
+  border: 2px solid #eee;
+  border-radius: 11px;
+  font-size: 1rem;
+  padding: 7px 20px;
+  min-width: 52px;
+  min-height: 38px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 1px 3px #0001;
+  transition: border .13s, color .13s, background .16s;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.variant-btn.selected,
+.variant-btn:active {
+  border: 2px solid #ee4d2d;
+  color: #ee4d2d;
+  background: #fff8f8;
+}
+
+/* Responsive khusus mobile */
+@media (max-width: 700px) {
+  .variant-btn {
+    font-size: 0.97rem;
+    padding: 6px 14px;
+    min-width: 44px;
+    min-height: 34px;
+  }
+  .variant-list {
+    gap: 5px;
+  }
+}
+
     .variant-btn.selected,
     .variant-btn:active {
       border: 2.5px solid #ee4d2d;
