@@ -1,4 +1,3 @@
-
 const STORE_PRODUCTS = {
   "Pokemon Store": [
     {
@@ -48,7 +47,7 @@ function $all(sel) { return document.querySelectorAll(sel); }
 
 
 function renderCart(storeName) {
-  const cartBox = $('#cart-items');
+  const cartBox = $('#cart-list');
   cartBox.innerHTML = ""; 
   const products = STORE_PRODUCTS[storeName];
   qtyVals = [];
@@ -61,27 +60,20 @@ function renderCart(storeName) {
         <input type="checkbox" class="cart-check" id="cart-check${i}">
         <img src="../../src/images/${prod.img}" class="cart-img">
         <div class="cart-info">
-          <div class="cart-title">${prod.title}</div>
-          <div class="cart-variant">Varian: ${prod.variant}</div>
-          <div class="cart-prices">
+          <div class="cart-product-title">${prod.title}</div>
+          <div class="cart-varian">Varian: ${prod.variant}</div>
+          <div class="cart-price-row">
             <span class="cart-price">Rp${prod.price.toLocaleString('id-ID')}</span>
             <span class="cart-old-price">Rp${prod.oldPrice.toLocaleString('id-ID')}</span>
           </div>
-          <div class="cart-qty">
-            <button class="cart-qty-btn" data-idx="${i}" data-delta="-1">-</button>
-            <span id="qty${i}">${prod.qty}</span>
-            <button class="cart-qty-btn" data-idx="${i}" data-delta="1">+</button>
+          <div class="cart-qty-row">
+            <button class="qty-btn" onclick="updateQty(${i}, -1)">-</button>
+            <span class="qty-value" id="qty${i}">${prod.qty}</span>
+            <button class="qty-btn" onclick="updateQty(${i}, 1)">+</button>
           </div>
         </div>
       </div>
     `;
-  });
-  $all('.cart-qty-btn').forEach(btn => {
-    btn.onclick = function() {
-      const idx = +this.dataset.idx;
-      const delta = +this.dataset.delta;
-      updateQty(idx, delta);
-    };
   });
   $all('.cart-check').forEach((cb, i) => {
     cb.onchange = function() {
@@ -114,7 +106,7 @@ function updateQty(idx, delta) {
   let newQty = oldQty + delta;
   if (isNaN(newQty) || newQty < 1) newQty = 1;
   qtyVals[idx] = newQty;
-  $('#qty'+idx).textContent = newQty;
+  document.getElementById('qty'+idx).textContent = newQty;
   updateTotal();
 }
 
