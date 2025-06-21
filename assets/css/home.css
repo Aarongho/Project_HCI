@@ -9,42 +9,47 @@ body, html {
   overflow-x: hidden;
 }
 
-/* QUICK ACTIONS HORIZONTAL */
 .quick-actions-horizontal {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
   background: #fff;
   padding: 12px 10px 8px 10px;
   border-bottom: 1.5px solid #f2f2f2;
   width: 100vw;
   overflow-x: auto;
-  gap: 24px;
+  gap: 28px; /* tambahkan gap yang lebih besar */
+  scrollbar-width: none;
 }
+.quick-actions-horizontal::-webkit-scrollbar {
+  display: none; /* sembunyikan scrollbar horizontal */
+}
+
 .quick-action-h-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 7px;
-  min-width: 85px;
+  min-width: 95px; /* Lebar minimal setiap item agar tidak numpuk */
+  gap: 3px;
 }
 .quick-action-h-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
+  width: 29px;
+  height: 29px;
+  border-radius: 8px;
   flex-shrink: 0;
+  margin-bottom: 2px;
 }
 .quick-action-h-label {
-  font-size: 1.02rem;
+  font-size: 1.03rem;
   font-weight: 700;
   color: #232323;
   white-space: nowrap;
-  display: flex;
-  flex-direction: column;
   line-height: 1.08;
+  text-align: center;
+  display: block;
 }
 .quick-action-h-sub {
-  font-size: 0.91rem;
+  font-size: 0.93rem;
   font-weight: 400;
   color: #ff5722;
   line-height: 1.02;
