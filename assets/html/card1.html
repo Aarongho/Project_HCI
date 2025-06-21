@@ -13,19 +13,17 @@
       padding: 0;
       color: #1b1b1b;
       box-sizing: border-box;
-      height: 100%;
-      width: 100vw;
       overflow-x: hidden;
     }
     body {
       min-height: 100vh;
-      overflow-x: hidden;
-      padding-bottom: 84px;
+      padding-bottom: 90px;
     }
     .topbar-product {
       display: flex;
       align-items: center;
-      padding: .7rem 1rem .3rem .7rem;
+      justify-content: flex-start;
+      padding: 0.6rem 1rem 0.6rem 0.7rem;
       background: linear-gradient(180deg, #ff5722 0%, #ff7a47 100%);
       position: sticky;
       top: 0;
@@ -33,36 +31,37 @@
       min-height: 52px;
       gap: 10px;
     }
-    .chat-back {
-      background: none;
+    .back-btn {
       border: none;
-      color: #fff;
-      font-size: 2.6rem;
-      margin-right: 1rem;
+      background: none;
+      padding: 0 10px 0 0;
+      margin-right: 8px;
       cursor: pointer;
-      padding: 0 7px;
-      border-radius: 4px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      height: 42px;
+      width: 42px;
+    }
+    .back-btn img {
+      width: 28px;
+      height: 28px;
     }
     .search-bar {
       flex: 1;
-      margin: 0 12px;
       border: none;
       font-size: 1.13rem;
       padding: 8px 14px;
       border-radius: 10px;
-      background: #f8f8f8;
+      background: #fff;
       color: #555;
+      box-shadow: 0 1px 6px #0001;
     }
     .product-icons {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-    .icon-btn {
-      width: 26px;
-      height: 26px;
-      margin: 0 2px;
-      cursor: pointer;
+      margin-left: 8px;
     }
     .cart-icon-wrap { position: relative; }
     .cart-badge {
@@ -70,6 +69,12 @@
       background: #ee4d2d; color: #fff;
       font-size: 0.75rem; padding: 1px 6px;
       border-radius: 12px; font-weight: bold;
+    }
+    .icon-btn {
+      width: 26px;
+      height: 26px;
+      margin: 0 2px;
+      cursor: pointer;
     }
     .mapping-bar {
       display: flex;
@@ -82,7 +87,6 @@
       top: 40px;
       z-index: 200;
       overflow-x: auto;
-      max-width: 100vw;
     }
     .map-btn {
       flex: 1;
@@ -97,7 +101,6 @@
       cursor: pointer;
       border-bottom: 3px solid transparent;
       transition: color .14s, border-bottom .22s;
-      white-space: nowrap;
     }
     .map-btn.active {
       color: #ff601a;
@@ -109,7 +112,6 @@
       background: #fff;
       text-align: center;
       padding: 12px 0 5px 0;
-      overflow-x: hidden;
     }
     .main-product-img {
       width: 86vw;
@@ -133,6 +135,7 @@
       display: flex; align-items: baseline; gap: 1.1rem;
       font-size: 1.65rem; color: #ee4d2d; font-weight: bold;
     }
+    .main-price { color: #ee4d2d;}
     .old-price { color: #c3c3c3; font-size: 1.1rem; text-decoration: line-through; font-weight: normal;}
     .product-sold { color: #6e6e6e; font-size: .99rem; margin-left: auto; font-weight: normal;}
     .product-spaylater { color: #484848; font-size: .99rem; margin-top: 6px;}
@@ -174,13 +177,13 @@
     .policy-dot { color: #ccc; }
     .product-spaylater-promo { font-size: .99rem; color: #ee4d2d; margin: 6px 0; display: flex; align-items: center; gap: 7px;}
     .product-top20 { background: #fff4f3; color: #ee4d2d; font-size: .97rem; margin: 7px 0 15px 0; padding: 5px 10px; border-radius: 8px; display: flex; align-items: center; gap: 7px; font-weight: bold;}
+    /* ----------------- VARIASI DAN POPUP -------------------- */
     .variant-bar {
       background: #fff;
       padding: 1.1rem 1rem .6rem 1rem;
       font-weight: bold;
       border-bottom: 1px solid #f2f2f2;
       margin-bottom: 12px;
-      overflow-x: auto;
     }
     .variant-bar-label {
       font-size: 1.12rem;
@@ -193,9 +196,6 @@
       gap: 14px;
       margin-top: 7px;
       margin-bottom: 6px;
-      flex-wrap: wrap;
-      overflow-x: auto;
-      max-width: 100vw;
     }
     .variant-btn {
       background: #fff;
@@ -216,36 +216,124 @@
       color: #ee4d2d;
       background: #fff8f8;
     }
-    .bottom-bar {
-      position: fixed;
-      left: 0; right: 0; bottom: 0;
+    .variant-popup, .variant-popup * { font-family: 'Vollkorn', Arial, sans-serif !important; }
+    .variant-popup {
+      position: fixed; left: 0; right: 0; bottom: -110%;
+      background: #fff; z-index: 1200;
+      border-radius: 28px 28px 0 0;
+      box-shadow: 0 -12px 32px #0003;
+      transition: bottom .37s cubic-bezier(.57,1.6,.67,1.09);
+      min-height: 65vh; max-height: 90vh; width: 100vw; margin: 0 auto; overflow-y: auto;
+    }
+    .variant-popup.active { bottom: 0; }
+    .variant-popup-content {
+      padding: 1.6rem 1.3rem 2.1rem 1.3rem;
+      position: relative;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    .popup-close {
+      position: absolute;
+      right: 22px; top: 15px;
+      font-size: 3rem; color: #888;
+      background: none; border: none; cursor: pointer; z-index: 10; line-height: 1;
+    }
+    .popup-product-row {
+      display: flex; gap: 22px; align-items: center; margin-bottom: 20px;
+    }
+    .popup-product-row img {
+      width: 90px; height: 90px; border-radius: 15px; object-fit: cover;
+    }
+    .popup-product-title {
+      font-size: 1.34rem; font-weight: bold; margin-bottom: 4px; color: #222;
+    }
+    .popup-main-price { color: #ee4d2d; font-size: 1.54rem; font-weight: bold; margin-right: 13px;}
+    .popup-old-price { color: #bcbcbc; font-size: 1.19rem; text-decoration: line-through; vertical-align: middle;}
+    .popup-stok { font-size: 1.13rem; color: #555; margin-top: 5px;}
+    .popup-var-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0 6px 0; font-size: 1.18rem;}
+    .popup-variant-list { display: flex; gap: 18px; margin-bottom: 18px; margin-top: 6px; flex-wrap: wrap; font-size: 1.18rem;}
+    .popup-variant-btn {
       background: #fff;
-      display: flex;
-      gap: 12px;
-      justify-content: space-around;
-      align-items: center;
+      color: #444;
+      border: 2.5px solid #eee;
+      border-radius: 14px;
+      font-size: 1.18rem;
+      padding: 15px 35px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 1px 5px #0001;
+      margin-bottom: 8px;
+      transition: border .13s, color .13s, background .16s;
+      letter-spacing: 1.7px;
+    }
+    .popup-variant-btn.selected,
+    .popup-variant-btn:active {
+      border: 2.5px solid #ee4d2d;
+      color: #ee4d2d;
+      background: #fff8f8;
+    }
+    .popup-ukuran-detail { font-size: 1.11rem; color: #666; margin-bottom: 19px;}
+    .popup-jumlah-row { display: flex; align-items: center; gap: 40px; font-size: 1.19rem; margin: 14px 0 24px 0; justify-content: flex-start;}
+    .jumlah-ctrl { display: flex; gap: 0; align-items: center;}
+    .jumlah-ctrl button { width: 44px; height: 44px; border: none; font-size: 1.95rem; font-weight: bold; background: #fafafa; color: #ee4d2d; border-radius: 11px; cursor: pointer; transition: background .12s;}
+    .jumlah-ctrl button:active { background: #eee; }
+    #jumlah-val { width: 56px; display: inline-block; text-align: center; font-size: 1.34rem; color: #222; font-weight: bold;}
+    .popup-btn-row { display: flex; gap: 22px; margin-top: 20px;}
+    .popup-addcart-btn, .popup-buy-btn {
+      flex: 1; font-size: 1.26rem; font-weight: bold; padding: 19px 0;
+      border-radius: 22px; box-shadow: 0 2px 7px #0001;
+    }
+    .popup-addcart-btn { background: #fff; color: #ee4d2d; border: 2.5px solid #ee4d2d; transition: background .13s, color .13s;}
+    .popup-buy-btn { background: #ee4d2d; color: #fff; border: none; transition: background .13s;}
+    .variant-popup-overlay { display: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.21); z-index: 1199;}
+    .variant-popup-overlay.active { display: block; }
+    /* ------ ONGKIR POPUP ------ */
+    .popup-ongkir {
+      position: fixed; left: 0; right: 0; bottom: -120%;
+      z-index: 1100; background: #fff;
+      border-radius: 28px 28px 0 0; box-shadow: 0 -12px 36px #0004;
+      max-width: 510px; margin: 0 auto;
+      transition: bottom .35s cubic-bezier(.47,1.6,.49,1.1);
+      min-height: 62vh; width: 100vw;
+      font-size: 1.19rem;
+    }
+    .popup-ongkir.active { bottom: 0; }
+    .ongkir-content { padding: 2.0rem 1.4rem 1.4rem 1.4rem;}
+    .ongkir-title { font-size: 1.22rem; font-weight: bold; margin-bottom: 23px; text-align: center;}
+    .ongkir-section { font-size: 1.15rem; margin-bottom: 20px;}
+    .ongkir-row { display: flex; align-items: center; gap: 10px; margin-bottom: 13px; justify-content: space-between;}
+    .ongkir-garansi { gap: 16px; align-items: flex-start;}
+    .garansi-title { font-weight: bold; color: #13aa52; font-size: 1.14rem;}
+    .garansi-detail { color: #888; font-size: 1.09rem;}
+    .ongkir-alamat { font-weight: bold; color: #ee4d2d; font-size: 1.15rem;}
+    .ongkir-list { margin-top: 15px;}
+    .ongkir-item { display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 13px 16px; border-radius: 12px; margin-bottom: 9px; border: 1px solid #f1f1f1;}
+    .ongkir-harga { color: #ee4d2d; font-weight: bold; font-size: 1.11rem; margin-right: 19px;}
+    .ongkir-estimasi { color: #13aa52; font-size: 1.01rem;}
+    .ongkir-close-btn { width: 100%; background: #ee4d2d; color: #fff; border: none; border-radius: 13px; font-size: 1.19rem; font-weight: bold; padding: 13px 0; margin-top: 17px; cursor: pointer; box-shadow: 0 2px 7px #0001;}
+    .ongkir-overlay { display: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.18); z-index: 1000;}
+    .ongkir-overlay.active { display: block; }
+    /* ------ BOTTOM BAR ------ */
+    .bottom-bar {
+      position: fixed; left: 0; right: 0; bottom: 0;
+      background: #fff; display: flex; gap: 15px;
+      justify-content: space-around; align-items: center;
       box-shadow: 0 -2px 10px #0001;
-      padding: 13px 5vw 13px 5vw;
-      z-index: 999;
-      border-top: 1.5px solid #eee;
-      width: 100vw;
-      max-width: 100vw;
+      padding: 13px 5vw 15px 5vw; z-index: 1999;
     }
     .chat-btn, .cart-btn {
       background: #fff;
       color: #444;
       border: 2.5px solid #eee;
       border-radius: 14px;
-      font-size: 1.13rem;
-      padding: 13px 27px;
+      font-size: 1.18rem;
+      padding: 15px 35px;
       cursor: pointer;
       font-weight: bold;
       box-shadow: 0 1px 5px #0001;
-      letter-spacing: 1.1px;
-      flex: none;
-      min-width: 110px;
-      margin: 0;
+      margin-bottom: 8px;
       transition: border .13s, color .13s, background .16s;
+      letter-spacing: 1.7px;
     }
     .buy-btn {
       background: #ee4d2d;
@@ -254,24 +342,36 @@
       border-radius: 15px;
       font-size: 1.18rem;
       font-weight: bold;
-      padding: 13px 28px;
+      padding: 13px 32px;
       cursor: pointer;
-      min-width: 170px;
-      flex: 1;
       transition: background .18s;
     }
     .buy-btn:hover { background: #ca3717; }
-    /* Responsive */
     @media (max-width: 700px) {
-      .main-product-img { max-width: 95vw; }
-      .bottom-bar { padding: 11px 2vw 11px 2vw; }
-      .chat-btn, .cart-btn, .buy-btn { font-size: 1.05rem; padding: 11px 8px; min-width: 90px; }
+      .variant-popup { min-height: 78vh; max-height: 97vh; border-radius: 22px 22px 0 0;}
+      .variant-popup-content { padding: 1.09rem .55rem 1.3rem .55rem; max-width: 100vw;}
+      .popup-product-row img { width: 76px; height: 76px;}
+      .popup-close { font-size: 2.3rem; }
+      .popup-btn-row { gap: 13px; }
+      .ongkir-content { padding: 1.1rem .6rem 1rem .6rem;}
+      .popup-ongkir { border-radius: 18px 18px 0 0; min-height: 60vh;}
+      .mapping-bar { margin: 1rem .2rem 1rem .2rem; }
+      .map-btn { font-size: 1rem; padding: .8rem 0 .5rem 0; }
+      .cards-container { flex-wrap: wrap; gap: 12px; justify-content: flex-start;}
+      .rekomendasi-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 19px 0;
+      }
+      .product-card { height: 265px; }
+      .product-img { height: 138px; }
+      .bottom-bar { padding: 8px 3vw 12px 3vw; gap: 7px; }
+      .chat-btn, .cart-btn, .buy-btn { font-size: 1.01rem; padding: 11px 12px;}
     }
   </style>
 </head>
 <body>
   <div class="topbar-product">
-    <button class="chat-back" onclick="window.history.back()">&lt;</button>
+    <button class="back-btn" onclick="window.history.back()"><img src="../../src/images/back-arrow.svg" alt="Kembali"></button>
     <input type="text" class="search-bar" placeholder="Cari di Shopee" />
     <div class="product-icons">
       <div class="cart-icon-wrap">
@@ -340,7 +440,89 @@
       <button class="variant-btn" data-variant="XXL">XXL</button>
     </div>
   </div>
-  <div id="variant-popup" class="variant-popup" style="display:none"></div>
+  <!-- ====== VARIAN POPUP ====== -->
+  <div id="variant-popup" class="variant-popup">
+    <div class="variant-popup-content">
+      <button class="popup-close" onclick="closeVariantPopup()">×</button>
+      <div class="popup-product-row">
+        <img src="../../src/images/charizard.png" alt="Mega Charizard X" onerror="this.src='../../src/images/logo.svg'">
+        <div>
+          <div class="popup-product-title">Pokemon Mega Charizard X</div>
+          <div>
+            <span class="popup-main-price">Rp191.920</span>
+            <span class="popup-old-price">Rp210.000</span>
+          </div>
+          <div class="popup-stok">Stok: <span id="popup-stock">13</span></div>
+        </div>
+      </div>
+      <div class="popup-var-row">
+        <span>Ukuran</span>
+      </div>
+      <div class="popup-variant-list" id="popup-variant-list">
+        <button class="popup-variant-btn" data-variant="S">S</button>
+        <button class="popup-variant-btn" data-variant="M">M</button>
+        <button class="popup-variant-btn" data-variant="L">L</button>
+        <button class="popup-variant-btn" data-variant="XL">XL</button>
+        <button class="popup-variant-btn" data-variant="XXL">XXL</button>
+      </div>
+      <div class="popup-ukuran-detail">Beda tiap Sizenya sebesar 5cm untuk lebar dan tinggi dari pokemon figurenya</div>
+      <div class="popup-jumlah-row">
+        <span>Jumlah</span>
+        <div class="jumlah-ctrl">
+          <button id="minus-btn">-</button>
+          <span id="jumlah-val">1</span>
+          <button id="plus-btn">+</button>
+        </div>
+      </div>
+      <div class="popup-btn-row">
+        <button class="popup-addcart-btn" onclick="addToCart()">Masukkan Keranjang</button>
+        <button class="popup-buy-btn" onclick="goToBuy()">Beli Sekarang</button>
+      </div>
+    </div>
+  </div>
+  <div id="variant-popup-overlay" class="variant-popup-overlay"></div>
+  <!-- ====== ONGKIR POPUP ====== -->
+  <div id="popup-ongkir" class="popup-ongkir">
+    <div class="ongkir-content">
+      <div class="ongkir-title">Informasi Ongkir</div>
+      <div class="ongkir-section">
+        <div class="ongkir-row ongkir-garansi">
+          <img src="../../src/images/trucks.svg" class="mini-icon" onerror="this.src='../../src/images/logo.svg'">
+          <div>
+            <div class="garansi-title">Garansi Tepat Waktu</div>
+            <div class="garansi-detail">Dapatkan Voucher s/d Rp10.000 jika pesanan terlambat.</div>
+          </div>
+        </div>
+        <div class="ongkir-row">
+          <span>Kirim ke</span>
+          <span class="ongkir-alamat">KOTA JAKARTA</span>
+        </div>
+        <div class="ongkir-list">
+          <div class="ongkir-item">
+            <div>
+              <img src="../../src/images/truck.svg" class="mini-icon" onerror="this.src='../../src/images/truck.svg'"> Tommorow
+            </div>
+            <div>
+              <span class="ongkir-harga">Rp18.000</span>
+              <span class="ongkir-estimasi">Garansi tiba: 11 Juni</span>
+            </div>
+          </div>
+          <div class="ongkir-item">
+            <div>
+              <img src="../../src/images/truck.svg" class="mini-icon" onerror="this.src='../../src/images/truck.svg'"> Reguler
+            </div>
+            <div>
+              <span class="ongkir-harga">Rp0</span>
+              <span class="ongkir-estimasi">Garansi tiba: 12 - 14 Juni</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="ongkir-close-btn" onclick="closeOngkirPopup()">OK</button>
+    </div>
+  </div>
+  <div id="popup-ongkir-overlay" class="ongkir-overlay"></div>
+  <!-- ====== DESKRIPSI, RATING, SELLER, REKOMENDASI ====== -->
   <div class="specdesc-section" id="desc-main">
     <div class="specdesc-tabs">
       <button class="specdesc-tab active" onclick="showSpecDesc('deskripsi')">Deskripsi</button>
@@ -623,11 +805,10 @@
   </div>
   <div class="bottom-bar">
     <button class="chat-btn">Chat</button>
-    <button class="cart-btn">Keranjang</button>
+    <button class="cart-btn" onclick="alert('Masuk ke keranjang!')">Keranjang</button>
     <button class="buy-btn" onclick="openVariantPopup()">Beli Sekarang</button>
   </div>
   <script>
-    // Popup & Desc tab JS
     const descBtn = document.querySelector('.desc-expand-btn');
     let expanded = false;
     function toggleDesc() {
@@ -665,15 +846,64 @@
         if (sec) sec.scrollIntoView({behavior: "smooth"});
       }
     });
-    // POPUP VARIANT
     function openVariantPopup() {
-      // Untuk contoh, tampilkan alert saja!
-      alert("Fitur pilih variasi & jumlah akan tampil di sini.");
+      document.getElementById('variant-popup').classList.add('active');
+      document.getElementById('variant-popup-overlay').classList.add('active');
     }
-    // Ongkir popup (dummy)
+    function closeVariantPopup() {
+      document.getElementById('variant-popup').classList.remove('active');
+      document.getElementById('variant-popup-overlay').classList.remove('active');
+    }
+    document.getElementById('variant-popup-overlay').onclick = closeVariantPopup;
+    let variantSelected = null;
+    document.querySelectorAll('.variant-btn').forEach(btn => {
+      btn.onclick = function() {
+        document.querySelectorAll('.variant-btn').forEach(b=>b.classList.remove('selected'));
+        btn.classList.add('selected');
+        variantSelected = btn.dataset.variant;
+        openVariantPopup();
+        document.querySelectorAll('.popup-variant-btn').forEach(b=>{
+          if(b.dataset.variant==variantSelected) b.classList.add('selected');
+          else b.classList.remove('selected');
+        });
+      }
+    });
+    document.querySelectorAll('.popup-variant-btn').forEach(btn => {
+      btn.onclick = function() {
+        document.querySelectorAll('.popup-variant-btn').forEach(b=>b.classList.remove('selected'));
+        btn.classList.add('selected');
+        variantSelected = btn.dataset.variant;
+      }
+    });
+    let jumlah = 1;
+    function updateJumlah() {
+      document.getElementById('jumlah-val').textContent = jumlah;
+    }
+    document.getElementById('minus-btn').onclick = function() {
+      if (jumlah > 1) jumlah--;
+      updateJumlah();
+    }
+    document.getElementById('plus-btn').onclick = function() {
+      jumlah++;
+      updateJumlah();
+    }
+    function addToCart() {
+      alert('Berhasil ditambah ke keranjang: '+variantSelected+' x'+jumlah);
+      closeVariantPopup();
+    }
+    function goToBuy() {
+      alert('Silakan checkout: '+variantSelected+' x'+jumlah);
+      closeVariantPopup();
+    }
     function openOngkirPopup() {
-      alert("Info ongkir tampil di popup asli.");
+      document.getElementById('popup-ongkir').classList.add('active');
+      document.getElementById('popup-ongkir-overlay').classList.add('active');
     }
+    function closeOngkirPopup() {
+      document.getElementById('popup-ongkir').classList.remove('active');
+      document.getElementById('popup-ongkir-overlay').classList.remove('active');
+    }
+    document.getElementById('popup-ongkir-overlay').onclick = closeOngkirPopup;
   </script>
 </body>
 </html>
