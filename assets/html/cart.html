@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,8 +16,8 @@
     </div>
     <div class="cart-store-bar">
       <select class="cart-dropdown" id="store-select">
-        <option>Pokemon Store</option>
-        <option>Board Game Store</option>
+        <option value="Pokemon Store">Pokemon Store</option>
+        <option value="Board Game Store">Board Game Store</option>
       </select>
       <span class="cart-location">
         <img src="../../src/images/location.svg" alt="Loc" class="location-icon">
@@ -28,53 +29,18 @@
       <button class="cart-voucher-tab" data-type="universal">Voucher Universal</button>
       <select class="cart-voucher-dropdown" id="voucher-select">
         <option>Pilih voucher</option>
-        <option>Voucher 10K</option>
-        <option>Voucher Gratis Ongkir</option>
       </select>
       <button class="cart-voucher-btn">Pakai</button>
     </div>
-    <div class="cart-list">
-      <div class="cart-card">
-        <input type="checkbox" class="cart-check" checked>
-        <img src="../../src/images/charizard.png" class="cart-img" alt="Charizard">
-        <div class="cart-info">
-          <div class="cart-product-title">Pokemon Mega Charizard X</div>
-          <div class="cart-varian">Varian: L</div>
-          <div class="cart-price-row">
-            <span class="cart-price">Rp191.920</span>
-            <span class="cart-old-price">Rp210.000</span>
-          </div>
-          <div class="cart-qty-row">
-            <button class="qty-btn" onclick="updateQty(0, -1)">-</button>
-            <span class="qty-value" id="qty0">2</span>
-            <button class="qty-btn" onclick="updateQty(0, 1)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="cart-card">
-        <input type="checkbox" class="cart-check">
-        <img src="../../src/images/adidas.png" class="cart-img" alt="Adidas">
-        <div class="cart-info">
-          <div class="cart-product-title">Baju Bola Adidas</div>
-          <div class="cart-varian">Varian: M</div>
-          <div class="cart-price-row">
-            <span class="cart-price">Rp109.900</span>
-            <span class="cart-old-price">Rp129.000</span>
-          </div>
-          <div class="cart-qty-row">
-            <button class="qty-btn" onclick="updateQty(1, -1)">-</button>
-            <span class="qty-value" id="qty1">2</span>
-            <button class="qty-btn" onclick="updateQty(1, 1)">+</button>
-          </div>
-        </div>
-      </div>
+    <!-- LIST PRODUCT AUTO RENDER BY JS -->
+    <div class="cart-list" id="cart-list">
     </div>
   </div>
   <div class="cart-bottom-bar">
     <input type="checkbox" id="check-all" />
     <label for="check-all" class="check-all-label">Semua</label>
-    <span class="cart-total-label">Total <span class="cart-total" id="cart-total">Rp383.840</span></span>
-    <button class="cart-checkout-btn" id="checkout-btn">Checkout (<span id="checkout-count">1</span>)</button>
+    <span class="cart-total-label">Total <span class="cart-total" id="cart-total">Rp0</span></span>
+    <button class="cart-checkout-btn" id="checkout-btn">Checkout (<span id="checkout-count">0</span>)</button>
   </div>
   <script src="../js/cart.js"></script>
 </body>
