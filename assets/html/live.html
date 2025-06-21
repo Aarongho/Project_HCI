@@ -3,58 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live</title>
-  <link rel="stylesheet" href="../css/live.css">
+  <title>Langsung</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/foryou.css">
+  <style>
+    /* Perbaiki tinggi untuk subnavbar dan padding carousel biar pas */
+    .subnavbar {
+      position: fixed;
+      top: 0;
+      left: 0; right: 0;
+      height: 48px;
+      background: rgba(255,255,255,0.95);
+      z-index: 51;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      border-bottom: 1px solid #ececec;
+    }
+    .subnavbar a {
+      color: #222;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 8px;
+      border-radius: 4px;
+      transition: background 0.1s;
+    }
+    .subnavbar a.active, .subnavbar a:hover {
+      background: #f7f7f7;
+      color: #ff6600;
+    }
+    .carousel {
+      padding-top: 48px !important;
+    }
+  </style>
 </head>
 <body>
-  <!-- SUBNAVBAR ATAS -->
-  <div class="subnavbar">
-    <a href="following.html">Mengikuti</a>
-    <a href="live.html" class="active">Langsung</a>
-    <a href="foryou.html">Untuk Anda</a>
-  </div>
+  <nav>
+    <div class="nav-left">
+      <img src="../../src/images/liveandvideo/image1.png" alt="">
+      <img src="../../src/images/liveandvideo/image2.png" alt="">
+    </div>
+    <div class="subnavbar">
+        <a href="following.html">Mengikuti</a>
+        <a href="live.html" class="active">Langsung</a>
+        <a href="foryou.html">Untuk Anda</a>
+    </div>
+    <div class="nav-right">
+      <img src="../../src/images/liveandvideo/image3.png" alt="">
+    </div>
+  </nav>
 
-  <!-- VIDEO UTAMA -->
-  <div class="live-video-container">
-    <video class="responsive-video" controls>
-      <source src="../../src/videos/liveandvideo/live.mp4" type="video/mp4" />
-    </video>
+  <div class="carousel">
+    <!-- Slide 1 -->
+    <div class="carousel-item">
+      <video class="responsive-video" controls poster="../../src/images/liveandvideo/live-thumb1.png">
+        <source src="../../src/videos/liveandvideo/live1.mp4" type="video/mp4" />
+      </video>
+      <div class="video-caption">
+        <div class="caption-top">
+          <img src="../../src/images/liveandvideo/image12.png" alt="">
+          <span class="discount">Diskon Rp899 Aku beli di sini</span>
+          <img src="../../src/images/liveandvideo/image13.png" alt="">
+        </div>
+        <div class="caption-middle">
+          <span class="username">@Winraeni</span><br>
+          <span class="caption-text">Pulpen stylus pen semua jenis hp</span><br>
+          <span class="hashtags">#styluspenandroid #styluspeniphone<br>#styluspenhack #phoneballpoint</span>
+          <span class="see-more">... Lihat Selengkapnya</span>
+        </div>
+        <div class="caption-bottom">
+          <img src="../../src/images/liveandvideo/image4.png" alt="">
+          <span class="music-title">Lion</span>
+          <img id="arrow" src="../../src/images/liveandvideo/image13.png" alt="">
+        </div>
+      </div>
+      <div class="interaction">
+        <img id="pfp" src="../../src/images/liveandvideo/image8.png" alt="">
+        <img src="../../src/images/liveandvideo/image5.png" alt=""><span>7,2Rb</span>
+        <img src="../../src/images/liveandvideo/image6.png" alt=""><span>1,1Rb</span>
+        <img src="../../src/images/liveandvideo/image7.png" alt=""><span>Bagikan</span>
+        <img src="../../src/images/liveandvideo/image11.png" alt=""><span>Tanya</span>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <video class="responsive-video" controls poster="../../src/images/liveandvideo/live-thumb2.png">
+        <source src="../../src/videos/liveandvideo/live2.mp4" type="video/mp4" />
+      </video>
+      <div class="video-caption">
+        <div class="caption-top">
+          <img src="../../src/images/liveandvideo/image12.png" alt="">
+          <span class="discount">66% Great Mid-Year Sale</span>
+          <img src="../../src/images/liveandvideo/image13.png" alt="">
+        </div>
+        <div class="caption-middle">
+          <span class="username">@ShopeeLiveFashion</span><br>
+          <span class="caption-text">Beli 1 Gratis 1, Dapat 2 Baju hanya 70rb, stok terbatas bisa COD</span><br>
+          <span class="hashtags">#ShopeeLive #MidYearSale #COD</span>
+          <span class="see-more">... Lihat Selengkapnya</span>
+        </div>
+        <div class="caption-bottom">
+          <img src="../../src/images/liveandvideo/image4.png" alt="">
+          <span class="music-title">Shopee Live</span>
+          <img id="arrow" src="../../src/images/liveandvideo/image13.png" alt="">
+        </div>
+      </div>
+      <div class="interaction">
+        <img id="pfp" src="../../src/images/liveandvideo/image10.png" alt="">
+        <img src="../../src/images/liveandvideo/image5.png" alt=""><span>42,1Rb</span>
+        <img src="../../src/images/liveandvideo/image6.png" alt=""><span>22</span>
+        <img src="../../src/images/liveandvideo/image7.png" alt=""><span>Bagikan</span>
+        <img src="../../src/images/liveandvideo/image11.png" alt=""><span>Tanya</span>
+      </div>
+    </div>
   </div>
-
-  <!-- KOMENTAR ATAS VIDEO -->
-  <div class="comment-box">
-    <div class="comment">
-      <img src="../../src/images/liveandvideo/image19.png" alt="">
-      <span>Selamat datang di Shopee Live!</span>
-    </div>
-    <div class="comment">
-      <img src="../../src/images/liveandvideo/image20.png" alt="">
-      <span><strong style="color:rgb(245, 206, 146);">dentaadj:</strong> aku beli barang ini dan kualitasnya bagus banget</span>
-    </div>
-    <div class="comment">
-      <span><strong style="color:rgb(245, 206, 146);">melasani:</strong> boleh spill produk nomor 17?</span>
-    </div>
-  </div>
-
-  <!-- BAR KIRIM KOMENTAR -->
-  <div class="comment-bar">
-    <div class="comment-text">
-      <img src="../../src/images/liveandvideo/image18.png" alt="">
-      <span id="berikomentar">Tulis komentar...</span>
-    </div>
-    <img src="../../src/images/liveandvideo/image17.png" alt="">
-    <div class="stack-group">
-      <span>22</span>
-      <img src="../../src/images/liveandvideo/image7.png" alt="">
-    </div>
-    <div class="stack-group">
-      <span>42,1Rb</span>
-      <img src="../../src/images/liveandvideo/image5.png" alt="">
-    </div>
-  </div>
-
   <div class="navbar-placeholder"></div>
   <script src="../js/navbar.js"></script>
-  <script src="../js/lice-adjust.js"></script>
+  <script>
+    // Reuse the script for adjusting carousel-item height if needed
+    document.addEventListener("DOMContentLoaded", function() {
+      function fixNavbarCarousel() {
+        const nav = document.querySelector("nav");
+        const carousel = document.querySelector(".carousel");
+        const items = document.querySelectorAll(".carousel-item");
+        if (nav && carousel && items.length > 0) {
+          // Hitung subnavbar (48px) dan nav bawah (60px)
+          const navHeight = 60; // navbar bawah
+          const subnavHeight = 48; // subnavbar atas
+          carousel.style.paddingTop = subnavHeight + "px";
+          items.forEach(item => {
+            item.style.height = `calc(100vh - ${navHeight}px - ${subnavHeight}px)`;
+          });
+        }
+      }
+      fixNavbarCarousel();
+      window.addEventListener("resize", fixNavbarCarousel);
+    });
+  </script>
 </body>
 </html>
