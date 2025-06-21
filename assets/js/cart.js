@@ -41,10 +41,8 @@ let currentStore = "Pokemon Store";
 let qtyVals = [];
 let checkedVals = [];
 
-
 function $(sel) { return document.querySelector(sel); }
 function $all(sel) { return document.querySelectorAll(sel); }
-
 
 function renderCart(storeName) {
   const cartBox = $('#cart-list');
@@ -75,6 +73,13 @@ function renderCart(storeName) {
       </div>
     `;
   });
+  $all('.cart-qty-btn').forEach(btn => {
+    btn.onclick = function() {
+      const idx = +this.dataset.idx;
+      const delta = +this.dataset.delta;
+      updateQty(idx, delta);
+    };
+  });
   $all('.cart-check').forEach((cb, i) => {
     cb.onchange = function() {
       checkedVals[i] = this.checked;
@@ -90,7 +95,6 @@ function renderCart(storeName) {
   updateTotal();
 }
 
-
 function renderVoucher(storeName) {
   const vouchers = STORE_VOUCHERS[storeName] || [];
   const voucherSelect = $('#voucher-select');
@@ -100,13 +104,12 @@ function renderVoucher(storeName) {
   });
 }
 
-
 function updateQty(idx, delta) {
   let oldQty = parseInt(qtyVals[idx]) || 1;
   let newQty = oldQty + delta;
   if (isNaN(newQty) || newQty < 1) newQty = 1;
   qtyVals[idx] = newQty;
-  document.getElementById('qty'+idx).textContent = newQty;
+  $('#qty'+idx).textContent = newQty;
   updateTotal();
 }
 
@@ -124,15 +127,12 @@ function updateTotal() {
   $('#checkout-count').textContent = checkedCount;
 }
 
-
 $all('.cart-voucher-tab').forEach(tab => {
   tab.addEventListener('click', function() {
     $all('.cart-voucher-tab').forEach(t => t.classList.remove('active'));
     this.classList.add('active');
   });
 });
-
-
 $('#store-select').addEventListener('change', function() {
   const store = this.value;
   currentStore = store;
@@ -140,8 +140,6 @@ $('#store-select').addEventListener('change', function() {
   renderCart(store);
   renderVoucher(store);
 });
-
-
 document.addEventListener('DOMContentLoaded', function() {
   currentStore = $('#store-select').value;
   $('#location-text').textContent = STORE_LOC[currentStore];
